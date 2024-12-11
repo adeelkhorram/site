@@ -6,10 +6,10 @@
     <title>Wolf-Paw</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 100px;
+            padding: 100px;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(#273d50	, #084b85, #e6F6F6); /* Half white gradient */
             color: white;
         }
 
@@ -27,6 +27,7 @@
         nav h1 {
             font-family: Impact, Charcoal, sans-serif;
             margin: 0;
+             padding: 0;
             color: white;
         }
 
@@ -46,8 +47,25 @@
             margin-top: 20px;
         }
 
+        .button-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .button-box p {
+            font-family: 'Jameel Noori Nastaleeq', serif;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
         button {
-            padding: 15px 30px;
+            padding: 10px;
             font-size: 1rem;
             font-weight: bold;
             color: #fff;
@@ -56,6 +74,10 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         button:focus {
@@ -66,7 +88,26 @@
             background-color: #0056b3;
             transform: scale(1.05);
         }
+
+        .text-container {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .text-container p {
+            color: #000;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        i {
+            font-size: 1.2rem;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -74,10 +115,41 @@
     </nav>
     <div class="content">
         <div class="button-container">
-            <button onclick="window.location.href='https://www.google.com';">Google</button>
-            <button onclick="window.location.href='https://www.facebook.com';">Facebook</button>
-            <button onclick="window.location.href='https://www.twitter.com';">Twitter</button>
-            <button onclick="window.location.href='https://www.linkedin.com';">LinkedIn</button>
+            <div class="button-box">
+                <p>سم ڈیٹا</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-sim-card"></i> SimData</button>
+            </div>
+            <div class="button-box">
+                <p>سی ڈی آرز</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-file-alt"></i> SimCDRs</button>
+            </div>
+            <div class="button-box">
+                <p>نادرا ریکارڈ</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-id-card"></i> Track Nadra Record</button>
+            </div>
+            <div class="button-box">
+                <p>ڈرائیونگ لائسنس</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-car"></i> Track Driving License</button>
+            </div>
+            <div class="button-box">
+                <p>ڈلیور ٹریک کریں</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-truck"></i> Track Deliver</button>
+            </div>
+            <div class="button-box">
+                <p>گاڑیاں تصدیق کریں</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-car-side"></i> Verify Vehicles</button>
+            </div>
+            <div class="button-box">
+                <p>بل ادا کریں</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-money-bill-wave"></i> Pay Bills</button>
+            </div>
+            <div class="button-box">
+                <p>بل چیک کریں</p>
+                <button onclick="window.location.href='#';"><i class="fas fa-file-invoice"></i> Check Bills</button>
+            </div>
+        </div>
+        <div class="text-container">
+            <p>Welcome to Wolf-Paw, your gateway to explore amazing websites and tools. Click on the buttons above to visit popular platforms or discover new horizons!</p>
         </div>
     </div>
 
@@ -94,6 +166,7 @@
     </script>
 </body>
 </html>
+
 
 <!--
 <h1 class="button3">SECRET TOOLS</h1>
