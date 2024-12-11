@@ -10,24 +10,33 @@
             padding: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        nav {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            font-family: Impact, Charcoal, sans-serif;
+            margin: 0;
+            color: white;
+        }
+
+        .content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            color: white;
-        }
-
-        header {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        h1 {
-            font-family: Impact, Charcoal, sans-serif;
-            margin: 0;
+            padding-top: 60px; /* Adjust for fixed navbar */
         }
 
         .button-container {
@@ -60,14 +69,16 @@
     </style>
 </head>
 <body>
-    <header>
+    <nav>
         <h1>Wolf-Paw</h1>
-    </header>
-    <div class="button-container">
-        <button onclick="window.location.href='https://www.google.com';">Google</button>
-        <button onclick="window.location.href='https://www.facebook.com';">Facebook</button>
-        <button onclick="window.location.href='https://www.twitter.com';">Twitter</button>
-        <button onclick="window.location.href='https://www.linkedin.com';">LinkedIn</button>
+    </nav>
+    <div class="content">
+        <div class="button-container">
+            <button onclick="window.location.href='https://www.google.com';">Google</button>
+            <button onclick="window.location.href='https://www.facebook.com';">Facebook</button>
+            <button onclick="window.location.href='https://www.twitter.com';">Twitter</button>
+            <button onclick="window.location.href='https://www.linkedin.com';">LinkedIn</button>
+        </div>
     </div>
 
     <!-- Google AdSense code -->
@@ -83,6 +94,7 @@
     </script>
 </body>
 </html>
+
 <!--
 <h1 class="button3">SECRET TOOLS</h1>
    <button onclick="window.location.href='https://www.google.com'" class="button">Google</button>
