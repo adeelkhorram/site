@@ -1,49 +1,93 @@
-  <!DOCTYPE html>
-  <html>
-  <head>
-<style>
-.test {
-  position: absolute;
-  /* adjust this value to move the title closer to the top */
-        text-align: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolf-Paw</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+        }
 
-  text-decoration: underline;
-}
-.button {
-  margin-left: auto;
-  margin-right: auto;
-  display: table;
-}
-.button {
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+        header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            text-align: center;
+        }
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */ 
-.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
-.button5 {background-color: #555555;} /* Black */
-</style>  </head>
- <body style="background: rgb(6,11,78);
-background: -moz-linear-gradient(90deg, rgba(6,11,78,1) 24%, rgba(0,0,0,1) 49%, rgba(40,44,149,0.9500175070028011) 90%, rgba(37,103,116,1) 100%);
-background: -webkit-linear-gradient(90deg, rgba(6,11,78,1) 24%, rgba(0,0,0,1) 49%, rgba(40,44,149,0.9500175070028011) 90%, rgba(37,103,116,1) 100%);
-background: linear-gradient(90deg, rgba(6,11,78,1) 24%, rgba(0,0,0,1) 49%, rgba(40,44,149,0.9500175070028011) 90%, rgba(37,103,116,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#060b4e",endColorstr="#256774",GradientType=1);
-">
+        h1 {
+            font-family: Impact, Charcoal, sans-serif;
+            margin: 0;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:focus {
+            outline: 3px solid #ffcb05;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wolf-Paw</h1>
+    </header>
+    <div class="button-container">
+        <button onclick="window.location.href='https://www.google.com';">Google</button>
+        <button onclick="window.location.href='https://www.facebook.com';">Facebook</button>
+        <button onclick="window.location.href='https://www.twitter.com';">Twitter</button>
+        <button onclick="window.location.href='https://www.linkedin.com';">LinkedIn</button>
+    </div>
+
+    <!-- Google AdSense code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
+<!--
 <h1 class="button3">SECRET TOOLS</h1>
    <button onclick="window.location.href='https://www.google.com'" class="button">Google</button>
 <button class="button" onclick="window.location.href='https://es.punjab-zameen.gov.pk/'">E-Stamp</button>
 <button class="button" onclick="window.location.href='https://minahalsimdata.com/'">Mobile Data</button>
 <button class="button" onclick="window.location.href='https://dlims.punjab.gov.pk/track'">DLIMS</button>
 <button class="button" onclick="window.location.href='https://ep.gov.pk/track.asp'">Pak Post</button>
-
-</body>
-</html>
+-->
