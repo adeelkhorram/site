@@ -120,9 +120,18 @@
         }
     </style>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.querySelector('.loading-overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        });
+
         function showLoading() {
             const overlay = document.querySelector('.loading-overlay');
-            overlay.style.display = 'flex';
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
         }
     </script>
 </head>
