@@ -3,27 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolf-Paw</title>
     <title>Wolf Paw</title>
     <style>
+        body {
         /* Reset default styling */
         * {
             margin: 0;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#273d50, #084b85, #e6F6F6); /* Half white gradient */
+            color: white;
             padding: 0;
             box-sizing: border-box;
         }
 
+        nav {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
         /* Body and linear gradient background */
         body {
             font-family: Arial, sans-serif;
             height: 100vh;
             display: flex;
+            justify-content: center;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             background: linear-gradient(45deg, #4e73df, #2dce89);
             overflow: hidden;
         }
 
+        nav h1 {
+            font-family: Impact, Charcoal, sans-serif;
         /* Header for title */
         header {
             width: 100%;
@@ -31,12 +47,17 @@
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
+            margin: 0;
             font-size: 2.5em;
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         /* Main content container */
         .container {
             width: 100%;
@@ -45,17 +66,37 @@
             padding: 20px;
         }
 
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         table {
             width: 100%;
             border-collapse: collapse;
         }
 
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         td {
             width: 50%;
             padding: 10px;
             text-align: center;
         }
 
+        .card button {
+            width: 100%; /* Make button width 100% of its parent */
+            height: 50px; /* Set a fixed height */
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
         /* Uniform button styling */
         button {
             width: 100%;
@@ -63,11 +104,33 @@
             font-size: 16px;
             background-color: #ffffff;
             border: none;
+            border-radius: 5px;
             border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+            box-sizing: border-box; /* Ensure padding is included in the height/width */
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
+        .card button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .card button:focus {
+            outline: 3px solid #ffcb05;
+        }
+        .marquee-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .marquee-container p {
+            font-size: 1.2rem;
+            margin: 10px 0;
         button:hover {
             background-color: #f0f0f0;
             transform: scale(1.05); /* Subtle zoom effect on hover */
@@ -75,13 +138,20 @@
 
         /* Footer styling */
         footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
             text-align: center;
             padding: 20px;
+            position: relative;
+            bottom: 0;
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             width: 100%;
         }
 
+        footer p {
+            margin: 0;
+            font-size: 1.1rem;
         .footer-textarea {
             width: 80%;
             height: 100px;
@@ -93,21 +163,47 @@
             background-color: #f0f0f0;
         }
 
+        /* Loading splash style */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
         /* Responsive design */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
             }
 
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
             td {
                 width: 100%;
             }
 
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
             header {
                 font-size: 2em;
                 padding: 10px;
             }
 
+            100% {
+                transform: rotate(360deg);
             button {
                 font-size: 14px;
             }
@@ -115,10 +211,73 @@
     </style>
 </head>
 <body>
+    <nav>
+        <h1>Wolf-Paw</h1>
+    </nav>
 
+    <div class="marquee-container">
+        <marquee width="60%" direction="left" height="100px">
+            نیچے دی گئی معلومات مفت ہے تاہم PAID سروسز کیلئے ہمارے وٹس ایپ نمبر پر رابطہ کریں!
+        </marquee>
+    </div>
+    <div class="content">
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('https://minahalsimdata.com/');">
+                <i class="fas fa-sim-card"></i> سم ڈیٹا
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('https://htmlpreview.github.io/?https://github.com/adeelkhorram/site/blob/main/raw.html');" >
+                <i class="fas fa-file-alt"></i> CDRs
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('#');" disabled>
+                <i class="fas fa-id-card"></i> شناختی کارڈ کاپی
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('https://dlims.punjab.gov.pk/track');">
+                <i class="fas fa-car"></i> ڈرائیونگ لائسنس
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('https://ep.gov.pk/track.asp');">
+                <i class="fas fa-truck"></i> پاکستان پوسٹ
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('#');" disabled>
+                <i class="fas fa-car-side"></i> گاڑی کی تصدیق کریں
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('#');" disabled>
+                <i class="fas fa-money-bill-wave"></i> بل کی ادائیگی میپکو
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('#');" disabled>
+                <i class="fas fa-file-invoice"></i> دیگر بل
+            </button>
+        </div>
+        <div class="card">
+            <button onclick="showLoadingAndRedirect('https://es.punjab-zameen.gov.pk/');">
+                <i class="fas fa-wolf-pack-battalion"></i> جائیداد/زمین
+            </button>
+        </div>
+        <div class="card">
+            <p>جو معلومات اوپر نہیں انہیں حاصل کرنے کیلئے ہم سے رابطہ کریں ! شکریہ</p>
+            <button onclick="showLoadingAndRedirect('https://wa.me/+923413741996');">
+                <i class="fas fa-wolf-pack-battalion"></i>وٹس ایپ پر رابطہ کریں
+            </button>
+        </div>
+    </div>
+    <!-- Loading Splash -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
     <!-- Header with Title -->
     <header>Wolf Paw</header>
-
     <!-- Main Content Container -->
     <div class="container">
         <table>
@@ -147,10 +306,44 @@
 
     <!-- Footer with Text Area -->
     <footer>
+        <p dir="rtl">
+            FRC فارم اوریجنل شناختی کارڈ، برتھ سرٹیفکیٹ اور موجودہ لوکیشن جیسی سروسز PAID ہیں جو کہ مارکیٹ میں سب سے سستے ریٹ پر یہاں مہیا کی جاتی ہیں ہم رابطہ کریں ! شکریہ
+        </p>
         <div class="footer-textarea" readonly>
             Random Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
     </footer>
 
+    <!-- Google AdSense code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <script>
+        // Function to show the loading splash and redirect after a short delay
+        function showLoadingAndRedirect(url) {
+            // Show the loading splash
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            // Set a timeout to redirect after 2 seconds
+            setTimeout(function () {
+                window.location.href = url;
+            }, 2000); // You can adjust the time here
+        }
+    </script>
 </body>
+</html>
+<!--
+<h1 class="button3">SECRET TOOLS</h1>
+   <button onclick="window.location.href='https://www.google.com'" class="button">Google</button>
+<button class="button" onclick="window.location.href='https://es.punjab-zameen.gov.pk/'">E-Stamp</button>
+<button class="button" onclick="window.location.href='https://minahalsimdata.com/'">Mobile Data</button>
+<button class="button" onclick="window.location.href='https://dlims.punjab.gov.pk/track'">DLIMS</button>
+<button class="button" onclick="window.location.href='https://ep.gov.pk/track.asp'">Pak Post</button>
+-->
 </html>
