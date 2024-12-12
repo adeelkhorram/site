@@ -59,7 +59,8 @@
         }
 
         .card button {
-            padding: 15px;
+            width: 100%; /* Make button width 100% of its parent */
+            height: 50px; /* Set a fixed height */
             font-size: 1rem;
             font-weight: bold;
             color: #fff;
@@ -73,6 +74,7 @@
             justify-content: center;
             gap: 10px;
             margin: 10px 0;
+            box-sizing: border-box; /* Ensure padding is included in the height/width */
         }
 
         .card button:hover {
