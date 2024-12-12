@@ -33,30 +33,31 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 200vh;
+            min-height: 100vh;
             position: relative;
         }
         .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
             justify-content: center;
+            width: 100%;
+            max-width: 600px;
             margin-top: 20px;
         }
         .button-box {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
             background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
             text-align: center;
-            width: 150px;
-            height: 150px;
+            height: 100px;
         }
         .button-box button {
-            padding: 10px;
-            font-size: 1rem;
+            padding: 5px;
+            font-size: 0.8rem;
             font-weight: bold;
             color: #fff;
             background: linear-gradient(90deg, #1e90ff, #007bff);
