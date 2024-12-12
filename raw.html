@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolf Paw</title>
+    <style>
+        /* Reset default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and linear gradient background */
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #4e73df, #2dce89);
+            overflow: hidden;
+            padding: 0;
+        }
+
+        /* Header for title */
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 2.5em;
+            position: absolute;
+            top: 20px;
+            z-index: 10;
+        }
+
+        /* Table container for buttons */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Uniform button size */
+        button {
+            width: 100%;
+            padding: 20px;
+            font-size: 16px;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+        }
+
+        /* Text area in footer */
+        .footer-textarea {
+            width: 80%;
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            td {
+                width: 100%;
+                padding: 10px;
+            }
+
+            /* Title positioning */
+            header {
+                font-size: 2em;
+                padding: 10px;
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Title -->
+    <header>Wolf Paw</header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <table>
+            <tr>
+                <td><button onclick="window.location.href='https://example.com'">Button 1</button></td>
+                <td><button onclick="window.location.href='https://example.com'">Button 2</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="window.location.href='https://example.com'">Button 3</button></td>
+                <td><button onclick="window.location.href='https://example.com'">Button 4</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="window.location.href='https://example.com'">Button 5</button></td>
+                <td><button onclick="window.location.href='https://example.com'">Button 6</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="window.location.href='https://example.com'">Button 7</button></td>
+                <td><button onclick="window.location.href='https://example.com'">Button 8</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="window.location.href='https://example.com'">Button 9</button></td>
+                <td><button onclick="window.location.href='https://example.com'">Button 10</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Footer with Text Area -->
+    <footer>
+        <div class="footer-textarea" readonly>
+            Random Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+    </footer>
+
+</body>
+</html>
