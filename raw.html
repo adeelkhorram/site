@@ -3,158 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wolf Paw</title>
+    <title>Wolf-Paw</title>
     <style>
-        /* Reset default styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body and linear gradient background */
         body {
+            margin: 0;
+            padding: 10px;
             font-family: Arial, sans-serif;
-            height: 100vh;
+            background: linear-gradient(#273d50, #084b85, #e6F6F6);
+            color: white;
+        }
+        nav {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav h1 {
+            font-family: Impact, Charcoal, sans-serif;
+            margin: 0;
+            color: white;
+        }
+        .content {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
-            background: linear-gradient(45deg, #4e73df, #2dce89);
-            overflow: hidden;
-            padding: 0;
+            justify-content: center;
+            height: 200vh;
+            position: relative;
         }
-
-        /* Header for title */
-        header {
-            width: 100%;
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            font-size: 2.5em;
-            position: absolute;
-            top: 20px;
-            z-index: 10;
-        }
-
-        /* Table container for buttons */
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin-top: 100px;
-            padding: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        td {
-            width: 50%;
-            padding: 10px;
-            text-align: center;
-        }
-
-        /* Uniform button size */
-        button {
-            width: 100%;
-            padding: 20px;
-            font-size: 16px;
-            background-color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* Footer styling */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            width: 100%;
-        }
-
-        /* Text area in footer */
-        .footer-textarea {
-            width: 80%;
-            height: 100px;
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
             margin-top: 20px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 8px;
-            border: none;
-            background-color: #f0f0f0;
         }
-
-        /* Responsive design for smaller screens */
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
+        .button-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 150px;
+            height: 150px;
+        }
+        .button-box button {
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .button-box button:focus {
+            outline: 3px solid #ffcb05;
+        }
+        .button-box button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
             }
-
-            table {
-                width: 100%;
+            100% {
+                transform: rotate(360deg);
             }
-
-            td {
-                width: 100%;
-                padding: 10px;
-            }
-
-            /* Title positioning */
-            header {
-                font-size: 2em;
-                padding: 10px;
-                top: 10px;
-            }
+        }
+        .loading-text {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 20px;
         }
     </style>
+    <script>
+        function showLoading() {
+            const overlay = document.querySelector('.loading-overlay');
+            overlay.style.display = 'flex';
+        }
+    </script>
 </head>
 <body>
+    <nav>
+        <h1>Wolf-Paw</h1>
+    </nav>
 
-    <!-- Header with Title -->
-    <header>Wolf Paw</header>
-
-    <!-- Main Content Container -->
-    <div class="container">
-        <table>
-            <tr>
-                <td><button onclick="window.location.href='https://example.com'">Button 1</button></td>
-                <td><button onclick="window.location.href='https://example.com'">Button 2</button></td>
-            </tr>
-            <tr>
-                <td><button onclick="window.location.href='https://example.com'">Button 3</button></td>
-                <td><button onclick="window.location.href='https://example.com'">Button 4</button></td>
-            </tr>
-            <tr>
-                <td><button onclick="window.location.href='https://example.com'">Button 5</button></td>
-                <td><button onclick="window.location.href='https://example.com'">Button 6</button></td>
-            </tr>
-            <tr>
-                <td><button onclick="window.location.href='https://example.com'">Button 7</button></td>
-                <td><button onclick="window.location.href='https://example.com'">Button 8</button></td>
-            </tr>
-            <tr>
-                <td><button onclick="window.location.href='https://example.com'">Button 9</button></td>
-                <td><button onclick="window.location.href='https://example.com'">Button 10</button></td>
-            </tr>
-        </table>
+    <div class="content">
+        <div class="button-container">
+            <div class="button-box">
+                <button onclick="showLoading(); window.location.href='https://minahalsimdata.com/';">
+                    <i class="fas fa-sim-card"></i> سم ڈیٹا
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading();" disabled>
+                    <i class="fas fa-file-alt"></i> CDRs
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading();" disabled>
+                    <i class="fas fa-id-card"></i> شناختی کارڈ کاپی
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading(); window.location.href='https://dlims.punjab.gov.pk/track';">
+                    <i class="fas fa-car"></i> ڈرائیونگ لائسنس
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading(); window.location.href='https://ep.gov.pk/track.asp';">
+                    <i class="fas fa-truck"></i> پاکستان پوسٹ
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading();" disabled>
+                    <i class="fas fa-car-side"></i> گاڑی کی تصدیق کریں
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading();" disabled>
+                    <i class="fas fa-money-bill-wave"></i> بل کی ادائیگی میپکو
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading();" disabled>
+                    <i class="fas fa-file-invoice"></i> دیگر بل
+                </button>
+            </div>
+            <div class="button-box">
+                <button onclick="showLoading(); window.location.href='https://es.punjab-zameen.gov.pk/';">
+                    <i class="fas fa-wolf-pack-battalion"></i> جائیداد/زمین
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- Footer with Text Area -->
-    <footer>
-        <div class="footer-textarea" readonly>
-            Random Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <div class="loading-overlay">
+        <div>
+            <div class="loading-spinner"></div>
+            <p class="loading-text">انتظار کریں۔</p>
         </div>
-    </footer>
+    </div>
 
+    <footer>
+        <p dir="rtl">FRC فارم اوریجنل شناختی کارڈ، برتھ سرٹیفکیٹ اور موجودہ لوکیشن جیسی سروسز PAID ہیں جو کہ مارکیٹ میں سب سے سستے ریٹ پر یہاں مہیا کی جاتی ہیں ہم رابطہ کریں ! شکریہ </p>
+    </footer>
 </body>
 </html>
